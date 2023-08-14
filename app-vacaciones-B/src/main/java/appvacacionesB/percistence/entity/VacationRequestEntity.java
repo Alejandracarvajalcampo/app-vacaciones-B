@@ -8,17 +8,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-
-@Table(name = "solicitud_vacaciones")
 @Entity
+@Table(name = "vacation")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class VacationRequestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vacation_request", nullable = false)
+    @Column(name = "id_vacation", nullable = false)
     private Long idVacationRequest;
     @Column(name = "tipo_solicitud",nullable = false)
     private String requestType;
@@ -36,6 +36,8 @@ public class VacationRequestEntity {
     private Boolean state;
     @ManyToOne
     @JsonBackReference
-    @JoinColumn(name = "empleado_id")
+    @JoinColumn(name = "id_employee")
     private EmployeeEntity employee;
+
+
 }
